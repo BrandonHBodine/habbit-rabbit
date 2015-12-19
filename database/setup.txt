@@ -1,0 +1,13 @@
+CREATE DATABASE habbitrabbit;
+
+\c habbitrabbit
+
+CREATE TABLE users (
+    id          SERIAL,
+    firstname   VARCHAR(50),
+    lastname    VARCHAR(50),
+    signupdate   date,
+            varchar(10),
+    len         interval hour to minute,
+    CONSTRAINT production UNIQUE(date_prod)
+);
