@@ -6,8 +6,9 @@ CREATE TABLE users (
     id          SERIAL,
     firstname   VARCHAR(50),
     lastname    VARCHAR(50),
-    signupdate   date,
-            varchar(10),
-    len         interval hour to minute,
-    CONSTRAINT production UNIQUE(date_prod)
+    email       VARCHAR(50),
+    phone       VARCHAR(50),
+    signupdate  date,
+    username    varchar(50),
+    password    varchar(256)
 );
