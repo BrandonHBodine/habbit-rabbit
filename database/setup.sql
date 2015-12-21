@@ -1,8 +1,3 @@
-
-CREATE DATABASE habbitrabbit;
-
-\c habbitrabbit
-
 DROP TABLE users;
 CREATE TABLE users (
     id          SERIAL,
