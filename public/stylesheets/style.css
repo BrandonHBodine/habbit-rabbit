@@ -14,3 +14,19 @@ a {
   padding: 0;
   border-radius: 0;
 }
+
+.signin {
+  display: none;
+}
+
+.signup {
+  display: none;
+}
+
+.successMessage {
+  display: none;
+}
+
+.button {
+  margin-top: 2em;
+}
