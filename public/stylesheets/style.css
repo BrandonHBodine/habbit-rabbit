@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.header {
+  background-color: rgb(223, 223, 223);
+}
+
+.list-group {
+  padding: 0;
+  border-radius: 0;
+}
+
+.signin {
+  display: none;
+}
+
+.signup {
+  display: none;
+}
+
+.successMessage {
+  display: none;
+}
+
+.button {
+  margin-top: 2em;
 }

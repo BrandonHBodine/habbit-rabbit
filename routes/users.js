@@ -18,8 +18,13 @@ var knex = require('knex')({
 
 //********* USER ROUTES***********//
 /* GET users listing. */
+<<<<<<< HEAD
 router.get('/', function(req, res) {
   res.send('respond with a resource');
+=======
+router.get('/', function(req, res, next) {
+  res.render('users', { title: 'Habbit Rabbit' });
+>>>>>>> features/signupviews
 });
 
 // Get USER by ID
