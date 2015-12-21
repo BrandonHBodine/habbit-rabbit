@@ -23,6 +23,14 @@ a {
   display: none;
 }
 
+#cancelSignup {
+  display: none;
+}
+
+#cancelSignin {
+  display: none;
+}
+
 .successMessage {
   display: none;
 }
