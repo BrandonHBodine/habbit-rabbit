@@ -3,8 +3,6 @@
 var express = require('express');
 var router = express.Router();
 
-
-
 // reqire pg that interacts with knex
 var pg = require('pg');
 //database requires
@@ -18,6 +16,7 @@ var knex = require('knex')({
   }
 });
 
+//********* USER ROUTES***********//
 /* GET users listing. */
 router.get('/', function(req, res) {
   res.send('respond with a resource');
@@ -36,11 +35,10 @@ router.get('/get/:id', function(req, res) {
   });
 });
 
-// Creat User
-
-router.get('/create/', function(req, res) {
-  res.write("Its here");
-  res.end('THing');
+// Create User
+router.get('/create', function(req, res) {
+  res.write('/create');
+  res.end();
   // set
   console.log(req.body.user.firstname);
   console.log(req.body.user.lastname);
@@ -55,11 +53,45 @@ router.get('/create/', function(req, res) {
   console.log(req.body.user.phone);
   console.log(req.body.user.username);
   console.log(req.body.user.password);
+}, function(failure) {
+  console.log('You Failed: ' + failure);
+});
 
+// ***** HABBIT ROUTES ******//
+// Create a habit for a user
+router.get('/habits/create/:userid', function(req, res) {
+  var userid = req.params.userid;
+  res.write('/habits/create/' + userid);
+  res.end();
+}, function(failure) {
+  console.log('You Failed: ' + failure);
+});
+
+
+// Get habits based on user ID
+router.get('/habits/get/:userid/:habitid', function(req, res) {
+  var userid = req.params.userid;
+  var habitid = req.params.habitid;
+  res.write('/habits/create/' + userid + habitid);
+  res.end();
+}, function(failure) {
+  console.log('You Failed: ' + failure);
+});
+
+
+// get habits based on user and habbit id
+router.get('/habits/get/:userid/:habitid', function(req, res) {
 
 }, function(failure) {
   console.log('You Failed: ' + failure);
 });
+
+
+// Update a habit For a user
+router.get('/habits/update/:userid/:habitid', function(req, res) {}, function(failure) {
+  console.log('You Failed: ' + failure);
+});
+
 
 
 module.exports = router;
