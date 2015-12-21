@@ -1,6 +1,8 @@
 <!-- inject temporary script file to public/js to manage css for displaying forms, add link to layout.hbs -->
 
 <div class="container">
+
+
   <div class="row">
     <div class="col-md-12 text-center">
       <h1>{{title}}</h1>
@@ -19,6 +21,29 @@
       <div class="button text-center">
         <input type="button" name="signin" value="Sign In">
       </div>
+    </div>
+  </div>
+
+    <div class="row signin">
+      <div class="col-md-3 buffer">
+
+      </div>
+      <div class="col-md-6">
+        <form class="signin" action="routes/index.js" method="post">
+          <div class="form-group has-feedback">
+            <label class="control-label" for="username">Username</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="password">Password</label>
+            <input type="text" class="form-control" id="password">
+          </div>
+        </form>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-12">
       <div class="button text-center">
         <input type="button" name="signup" value="Sign Up">
       </div>
@@ -26,40 +51,49 @@
   </div>
 
   <div class="row signup">
-    <div class="col-md-12 ">
-      <div class="form-group has-feedback">
-        <label class="control-label" for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName">
-      </div>
-      <div class="form-group has-feedback">
-        <label class="control-label" for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName">
-      </div>
-      <div class="form-group has-feedback">
-        <label class="control-label" for="userEmail">Email Address</label>
-        <div class="input-group">
-          <span class="input-group-addon">@</span>
-          <input type="text" class="form-control" id="userEmail">
+    <div class="col-md-3 buffer">
+
+    </div>
+    <div class="col-md-6">
+      <form class="signup" action="routes/index.js" method="post">
+        <div class="form-group has-feedback">
+          <label class="control-label" for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName">
         </div>
         <div class="form-group has-feedback">
-          <label class="control-label" for="phoneNum">Phone Number</label>
-          <input type="text" class="form-control" id="phoneNum">
+          <label class="control-label" for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName">
         </div>
         <div class="form-group has-feedback">
-          <label class="control-label" for="username">Username</label>
-          <input type="text" class="form-control" id="username">
+          <label class="control-label" for="userEmail">Email Address</label>
+          <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" id="userEmail">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="phoneNum">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNum">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="newUsername">Username</label>
+            <input type="text" class="form-control" id="newUsername">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="newPassword">Password</label>
+            <input type="text" class="form-control" id="newPassword">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="confNewPassword">Confirm Password</label>
+            <input type="text" class="form-control" id="confNewPassword">
+          </div>
+          <div class="button text-center">
+            <input type="submit" name="submit" value="Create Account">
+          </div>
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="password">Password</label>
-          <input type="text" class="form-control" id="password">
-        </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="confPassword">Confirm Password</label>
-          <input type="text" class="form-control" id="confPassword">
-        </div>
-      </div>
+      </form>
     </div>
   </div>
+
 
 
 </div>
