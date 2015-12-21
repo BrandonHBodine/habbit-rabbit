@@ -1,7 +1,9 @@
+
 CREATE DATABASE habbitrabbit;
 
 \c habbitrabbit
 
+DROP TABLE users;
 CREATE TABLE users (
     id          SERIAL,
     firstname   VARCHAR(50),
@@ -13,6 +15,7 @@ CREATE TABLE users (
     password    varchar(256)
 );
 
+DROP TABLE goodhabits;
 CREATE TABLE goodhabits (
     id          SERIAL,
     userid      INTEGER,
