@@ -12,6 +12,12 @@ function main(){
       $('.signup').css({display: 'block'});
     });
 
+    $('#submit').click(function(event){
+      $('.signin').css({display: 'none'});
+      $('.signup').css({display: 'none'});
+      $('.successMessage').css({display: 'block'});
+    });
+
   });
 }
 main();

@@ -15,6 +15,10 @@ a {
   display: none;
 }
 
+.successMessage {
+  display: none;
+}
+
 .button {
   margin-top: 2em;
 }

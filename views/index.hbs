@@ -16,6 +16,18 @@
       </p>
     </div>
   </div>
+
+  <div class="row successMessage">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h3>Success</h3>
+        <p>
+          You've successfully joined Habbit Rabbit! Sign in below to start habbiting!
+        </p>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12">
       <div class="button text-center" id="signinBtn">
@@ -55,7 +67,8 @@
 
     </div>
     <div class="col-md-6">
-      <form class="signup" action="routes/index.js" method="post">
+      <!-- action should be: "routes/index.js", method should be: "post", and submit button type should be: 'submit'-->
+      <form class="signup" action="" method="">
         <div class="form-group has-feedback">
           <label class="control-label" for="firstName">First Name</label>
           <input type="text" class="form-control" id="firstName">
@@ -86,8 +99,8 @@
             <label class="control-label" for="confNewPassword">Confirm Password</label>
             <input type="text" class="form-control" id="confNewPassword">
           </div>
-          <div class="button text-center">
-            <input type="submit" name="submit" value="Create Account">
+          <div class="button text-center" id="submit">
+            <input type="button" name="submit" value="Create Account">
           </div>
         </div>
       </form>
