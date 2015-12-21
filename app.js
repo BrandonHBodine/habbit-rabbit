@@ -1,8 +1,4 @@
 'use strict';
-<<<<<<< HEAD
-=======
-
->>>>>>> features/signupviews
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

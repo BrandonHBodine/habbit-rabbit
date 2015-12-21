@@ -14,21 +14,20 @@ var knex = require('knex')({
     user: 'Mundizzle', //your username
     database: 'habbitrabbit' //yourdatabase name
   }
+
 });
 
 //********* USER ROUTES***********//
 /* GET users listing. */
-<<<<<<< HEAD
-router.get('/', function(req, res) {
-  res.send('respond with a resource');
-=======
 router.get('/', function(req, res, next) {
-  res.render('users', { title: 'Habbit Rabbit' });
->>>>>>> features/signupviews
+  res.render('users', {
+    title: 'Habbit Rabbit'
+  });
 });
 
 // Get USER by ID
 router.get('/get/:id', function(req, res) {
+
   var id = req.params.id;
   knex.select('*').table('users').where('id', id).then(function(success) {
     console.log(success[0].firstname);
@@ -40,26 +39,40 @@ router.get('/get/:id', function(req, res) {
   });
 });
 
-// Create User
-router.get('/create', function(req, res) {
-  res.write('/create');
-  res.end();
-  // set
-  console.log(req.body.user.firstname);
-  console.log(req.body.user.lastname);
-  console.log(req.body.user.email);
-  console.log(req.body.user.phone);
-  console.log(req.body.user.username);
-  console.log(req.body.user.password);
+// Create User /users/create
+router.post('/create', function(req, res) {
+  var user = {};
+  // set variables to the post request
+  // user.id = ;
+  user.firstname = req.body.firstName;
+  user.lastname = req.body.lastName;
+  user.email = req.body.userEmail;
+  user.phone = req.body.phoneNum;
 
-  console.log(req.body.user.firstname);
-  console.log(req.body.user.lastname);
-  console.log(req.body.user.email);
-  console.log(req.body.user.phone);
-  console.log(req.body.user.username);
-  console.log(req.body.user.password);
+  user.username = req.body.newUsername;
+  user.password = req.body.newPassword;
+
+  console.log(user);
+  console.log(knex.insert(user).into('users'));
+
+  res.write('this is the new page');
+  res.end();
+
+  // Write queries to interact with postgres
+  knex('users').insert(user).then(function(success) {
+    res.end('You Have signed up');
+  }, function(failure) {
+    console.log(failure);
+  });
+
+
+  // NEED TO HAVE VIEW MADE FOR THIS
+
 }, function(failure) {
-  console.log('You Failed: ' + failure);
+
+  res.write('this is the new page and you failed');
+  res.end();
+
 });
 
 // ***** HABBIT ROUTES ******//
