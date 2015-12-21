@@ -9,19 +9,20 @@ var pg = require('pg');
 var knex = require('knex')({
   client: 'pg', //we will be using pg to connect to postgres
   connection: {
-    host: '127.0.0.1', //localhost server
-    port: 5432, //default pg server port
-    user: 'Mundizzle', //your username
-    database: 'habbitrabbit' //yourdatabase name
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT, //default pg server port
+    user: process.env.DB_USER,//your username
+    database: process.env.DB_DATABASE //yourdatabase name
   }
-
 });
 
 //********* USER ROUTES***********//
+
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
+  var id = req.params.id;
   res.render('users', {
-    title: 'Habbit Rabbit'
+    title: 'Show page for user with ID:' + id
   });
 });
 
@@ -37,6 +38,7 @@ router.get('/get/:id', function(req, res) {
   }, function(failure) {
     console.log('You Failed: ' + failure);
   });
+
 });
 
 // Create User /users/create
@@ -51,9 +53,6 @@ router.post('/create', function(req, res) {
 
   user.username = req.body.newUsername;
   user.password = req.body.newPassword;
-
-  console.log(user);
-  console.log(knex.insert(user).into('users'));
 
   res.write('this is the new page');
   res.end();
