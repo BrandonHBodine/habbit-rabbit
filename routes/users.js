@@ -5,15 +5,22 @@ var router = express.Router();
 
 // reqire pg that interacts with knex
 var pg = require('pg');
+
 //database requires
+// old databse connection
+// var knex = require('knex')({
+//   client: 'pg', //we will be using pg to connect to postgres
+//   connection: {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT, //default pg server port
+//     user: process.env.DB_USER,//your username
+//     database: process.env.DB_DATABASE //yourdatabase name
+//   }
+// });
+
 var knex = require('knex')({
-  client: 'pg', //we will be using pg to connect to postgres
-  connection: {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT, //default pg server port
-    user: process.env.DB_USER,//your username
-    database: process.env.DB_DATABASE //yourdatabase name
-  }
+  client: 'pg',
+  connection: process.env.DATABASE_URL
 });
 
 //********* USER ROUTES***********//
