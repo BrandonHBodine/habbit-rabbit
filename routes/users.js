@@ -10,7 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   // database interaction
-  // show view
+  var habitData = {
+      habits: ['coding', 'jogging', 'breathing']
+    };
+  res.render('show', habitData);
 });
 
 
