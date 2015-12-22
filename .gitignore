@@ -29,9 +29,6 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
-<<<<<<< HEAD
+
 # Environment Variable
-=======
-# Environmental Variable
->>>>>>> 74aef03078f8531ce94e023096402fdb2b6c632b
 .env

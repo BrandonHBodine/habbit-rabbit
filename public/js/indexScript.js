@@ -37,6 +37,18 @@ function main(){
       $('#cancelSignin').css({display: 'none'});
     });
 
+    $('.btn-default').click(function(event){
+      var currentButton = event.target;
+      console.log(currentButton);
+      $(currentButton).siblings('.active').removeClass('active');
+      if ($(currentButton).hasClass('active') === true) {
+        $(currentButton).removeClass('active');
+      } else {
+        $(currentButton).addClass('active');
+      }
+
+    });
+
   });
 }
 main();
