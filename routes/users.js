@@ -2,6 +2,14 @@
 
 var express = require('express');
 var router = express.Router();
+// reqire pg that interacts with knex
+var pg = require('pg');
+
+var knex = require('knex')({
+  client: 'pg',
+  connection: process.env.DATABASE_URL
+});
+
 
 var streakArray = [];
 
@@ -35,6 +43,7 @@ var data = [{
   progressBar: '100'
 }];
 
+//********* USER ROUTES***********//
 /* GET users listing. */
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
