@@ -3,44 +3,60 @@
     <div class="col-md-12 text-center">
       <h1>Hello Rabbit!</h1>
     </div>
-    <div class="col-md-12 text-center" style="background-color: black">
-      <h2 style="color: white">Welcome to Habbit Rabbit. Add new habits to get started!</h2>
+    <div class="col-md-12 text-center subtitle">
+      <h2 class="subtitleText">Nice Work! You're on a
+        {{#each streak}}{{this}}{{/each}} day
+        {{#each streakHabit}}{{this}}{{/each}} streak!</h2>
     </div>
   </div>
 
-  <div class="col-md-3 text-center">
+  <div class="col-md-3 sidebar">
     <div class="row">
-      <div class="col-md-10">
-        <div class="row" style="border: 1px solid black">
+      <div class="col-md-10 text-center">
+        <div class="row sidebarTitle">
           <h3>Habits</h3>
-          <!-- <h4>{{habits}}</h4> -->
         </div>
         <div class="row">
-          <ul class="habits_list">
-            {{#each habits}}
-              <li class="row" style="border: 1px solid black; list-style:none; list-style-position:outside">{{this}}</li>
-            {{/each}}
-          </ul>
+          <div class="col-md-12">
+            <ul class="habitsListTitle">
+              {{#each habits}}
+                <li class="row habitsList">
+                  <div class="habitsListItems pull-left">{{this}}</div>
+                  <div class="btn btn-info pull-right">+ Log Habit</div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
         </div>
-        <!-- <div class="row"> -->
-        <!-- <div class="col-md-12"> -->
-        <!-- {{#if data.habits}} -->
-        <!-- {{#each habits}} -->
-        <!-- <h4>{{habits}}</h4> -->
-        <!-- {{/each}} -->
-        <!-- {{/if}} -->
-        <!-- </div> -->
-        <!-- </div> -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="btn-lg btn-success">+ Add a Habit</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-9" style="border: 1px solid black">
+  <div class="col-md-9 showcase">
     <div class="row">
-      <h3>Getting Started</h3>
+      <h3>Your Progress</h3>
     </div>
-    <div class="row">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="row showcaseInfo">
+      <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          60%
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          60%
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          60%
+        </div>
+      </div>
     </div>
   </div>
 

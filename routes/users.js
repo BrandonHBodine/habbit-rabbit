@@ -11,7 +11,9 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   // database interaction
   var habitData = {
-      habits: ['coding', 'jogging', 'breathing']
+      habits: ['coding', 'jogging', 'breathing'],
+      streak: ['3'],
+      streakHabit: ['coding']
     };
   res.render('show', habitData);
 });
