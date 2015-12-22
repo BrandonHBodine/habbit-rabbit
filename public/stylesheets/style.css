@@ -14,6 +14,11 @@ a {
 .title {
   font: 40px "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: bold;
+  display:inline-block;
+  padding-top: 2rem
+}
+
+.logo {
 }
 
 .signInUp {
@@ -68,15 +73,20 @@ a {
 
 .habitsListItems {
   padding-top:1rem;
+  padding-left:1em;
 }
 .showcase {
   padding-right:0;
 }
 
 .showcaseInfo {
-  
+
 }
 
 .intro {
   font-size: 2rem;
+}
+
+.progressBarsList {
+  list-style: none;
 }

@@ -10,11 +10,20 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   // database interaction
+
+  //knex.(where).then(function(user){
+
+    //var progress  = user.streak/user.goal
+
+//})
+
   var habitData = {
-      habits: ['coding', 'jogging', 'breathing'],
+      habits: ['coding', 'jogging', 'breathing', 'eating'],
       streak: ['3'],
-      streakHabit: ['coding']
-    };
+      streakHabit: ['coding'],
+      goal: ['10'],
+      progressBar: '60'
+  };
   res.render('show', habitData);
 });
 

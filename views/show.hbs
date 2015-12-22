@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row header">
-    <div class="col-md-12 text-center">
-      <h1>Hello Rabbit!</h1>
+    <div class="col-md-12">
+      <img src="http://www.clipartlord.com/wp-content/uploads/2014/04/bunny-face.png" class="logo" height="100rem" width="100rem" />
+      <h1 class="title">Habbit Rabbit</h1>
     </div>
     <div class="col-md-12 text-center subtitle">
       <h2 class="subtitleText">Nice Work! You're on a
@@ -41,7 +42,21 @@
     <div class="row">
       <h3>Your Progress</h3>
     </div>
-    <div class="row showcaseInfo">
+    <div class="row">
+      <div class="col-md-10">
+        <ul class="progressBarsList">
+          <li class="row">
+            {{#each habits}}
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  {{progressBar}}
+                </div>
+              </div>
+              <div class="pull-right">{{habitGoal}}</div>
+            {{/each}}
+          </li>
+        </ul>
+        <!-- <div class="row showcaseInfo">
       <div class="progress">
         <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
           60%
@@ -56,6 +71,8 @@
         <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
           60%
         </div>
+      </div>
+    </div> -->
       </div>
     </div>
   </div>
