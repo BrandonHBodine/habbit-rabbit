@@ -16,9 +16,26 @@ var knex = require('knex')({
 /* GET users listing. */
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
+
+  // database logic to retrive habits in relation to user
+  knex.select('*').table('goodhabits').where('userid', id).then(function(success) {
+      console.log(success);
+  }, function(failure) {
+    console.log('The query Failed: ' + failure);
+  });
+
+  // database logic for retriving the logs for the user
+  knex.select('*').table('habitlog').where('userid', id).then(function(success) {
+      console.log(success);
+  }, function(failure) {
+    console.log('The query Failed: ' + failure);
+  });
+
+
   res.render('users', {
     title: 'Show page for user with ID:' + id
   });
+
 });
 
 // Get USER by ID
@@ -31,7 +48,7 @@ router.get('/get/:id', function(req, res) {
     res.end();
 
   }, function(failure) {
-    console.log('You Failed: ' + failure);
+    console.log('The query Failed: ' + failure);
   });
 
 });
