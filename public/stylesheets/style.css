@@ -1,5 +1,6 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 
 a {
@@ -7,7 +8,16 @@ a {
 }
 
 .header {
-  background-color: rgb(223, 223, 223);
+
+}
+
+.title {
+  font: 40px "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.signInUp {
+
 }
 
 .list-group {
@@ -29,4 +39,44 @@ a {
 
 .button {
   margin-top: 2em;
+}
+
+.subtitle {
+  background-color: black;
+}
+
+.subtitleText {
+  color: white;
+}
+
+.sidebar {
+  padding-left:0;
+}
+
+.sidebarTitle {
+  border: 1px solid black;
+}
+
+.habitsListTitle {
+  padding-left:0;
+}
+
+.habitsList {
+  border: 1px solid black;
+  list-style:none;
+}
+
+.habitsListItems {
+  padding-top:1rem;
+}
+.showcase {
+  padding-right:0;
+}
+
+.showcaseInfo {
+  
+}
+
+.intro {
+  font-size: 2rem;
 }
