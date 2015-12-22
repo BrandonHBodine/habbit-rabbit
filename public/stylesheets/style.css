@@ -15,10 +15,10 @@ a {
   font: 40px "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: bold;
   display:inline-block;
-  padding-top: 2rem
 }
 
 .logo {
+  vertical-align: 0;
 }
 
 .signInUp {
@@ -97,4 +97,13 @@ a {
 
 .progressBarsList {
   list-style: none;
+}
+
+.progress {
+  height: 3rem;
+  margin: .5rem;
+}
+
+.progressDataList {
+  list-style:none;
 }
