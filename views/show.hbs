@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row header">
+    <div class="col-md-12">
+      <img src="http://www.clipartlord.com/wp-content/uploads/2014/04/bunny-face.png" class="logo" height="100rem" width="100rem" />
+      <h1 class="title">Habbit<br> Rabbit</h1>
+    </div>
+    <div class="col-md-12 text-center subtitle">
+      <h2 class="subtitleText">Nice Work! You're on a
+        {{#longestStreak}}{{this.longestStreak}}{{/longestStreak}} day
+        {{#streakHabit}}{{this.streakHabit}}{{/streakHabit}} streak!</h2>
+    </div>
+  </div>
+
+  <div class="col-md-3 sidebar">
+    <div class="row">
+      <div class="col-md-10 text-center">
+        <div class="row sidebarTitle">
+          <h3>Habits</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="habitsListTitle">
+              {{#habits}}
+                <li class="row habitsList">
+                  <div class="habitsListItems pull-left">{{this.habits}}</div>
+                  <div class="btn btn-info pull-right">+ Did Today</div>
+                </li>
+              {{/habits}}
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="btn-lg btn-success">+ Add a Habit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9 showcase">
+    <!-- everything below here until next comment can be replaced -->
+    <div class="row">
+      <h3>Your Progress</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <ul class="progressBarsList">
+          <li class="row">
+            {{#habits}}
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{this.progressBar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progressBar}}%;">
+                  <p>{{this.habits}}</p>
+                </div>
+              </div>
+            {{/habits}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="progressDataList">
+          <li class="row">
+            {{#streak}}
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{this.progressBar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progressBar}}%;">
+                  <p>{{this.streak}}</p>
+                </div>
+              </div>
+            {{/streak}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- everything above here until next comment can be replaced -->
+  </div>
+
+</div>

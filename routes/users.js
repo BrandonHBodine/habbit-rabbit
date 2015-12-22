@@ -3,20 +3,41 @@
 var express = require('express');
 var router = express.Router();
 
-// reqire pg that interacts with knex
-var pg = require('pg');
+var streakArray = [];
 
-var knex = require('knex')({
-  client: 'pg',
-  connection: process.env.DATABASE_URL
-});
+function getMaxofArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
 
-//********* USER ROUTES***********//
+var data = [{
+  habits: 'coding',
+  streak: '4',
+  streakHabit: 'coding',
+  goal: '10',
+  progressBar: '60'
+}, {
+  habits: 'jogging',
+  streak: '6',
+  streakHabit: 'jogging',
+  goal: '10',
+  progressBar: '80'
+}, {
+  habits: 'breathing',
+  streak: '3',
+  streakHabit: 'breathing',
+  goal: '10',
+  progressBar: '10'
+}, {
+  habits: 'eating',
+  streak: '10',
+  streakHabit: 'eating',
+  goal: '10',
+  progressBar: '100'
+}];
 
 /* GET users listing. */
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
-
   // HABITS DATA REQUEST BASED ON USER ID
   knex.select('*').table('goodhabits').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
@@ -25,6 +46,25 @@ router.get('/:id', function(req, res, next) {
     console.log('The query Failed: ' + failure);
   });
 
+  // router.get('/:id', function(req, res, next) {
+  //   // var longestStreak = getMaxofArray(streakArray);
+  //   // var longStreak = getMaxofArray(streakArray);
+  //   // for (var i = 0; i <= data.length-1; i++) {
+  //   //   streakArray.push(data[i].streak);
+  //   //   return streakArray;
+  //   //   console.log(streakArr);
+  //   // }
+  //   var userData = {
+  //     name: "Alya",
+  //     habits: data,
+  //     // streak:
+  //     // longestStreak: longStreak
+  //   };
+  //
+  //   res.render('show', userData);
+  //   // var longestStreak = getMaxofArray(streakArray);
+  // });
+
   // HABIT LOG DATA REQUEST BASED ON USER ID
   knex.select('*').table('habitlog').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
@@ -32,9 +72,13 @@ router.get('/:id', function(req, res, next) {
   }, function(failure) {
     console.log('The query Failed: ' + failure);
   });
+});
+
+
+router.get('/', function(req, res, next) {
 
   res.render('users', {
-    title: 'Show page for user with ID:' + id
+    title: 'Habbit Rabbit'
   });
 
 });
@@ -165,12 +209,6 @@ router.post('/:id/habits/create', function(req, res, next) {
 router.get('/habits/get/:userid/:habitid', function(req, res) {
 
 }, function(failure) {
-  console.log('You Failed: ' + failure);
-});
-
-
-// Update a habit For a user
-router.get('/habits/update/:userid/:habitid', function(req, res) {}, function(failure) {
   console.log('You Failed: ' + failure);
 });
 
