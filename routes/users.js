@@ -121,10 +121,15 @@ router.post('/habits/create/:userid', function(req, res) {
 
 // Log a habit
 router.post('/habits/log/:userid/:habitid', function(req, res) {
-  knex('goodhabits').insert(habit).then(function(success) {
-    res.write('/habits/create/' + userid);
-    res.end();
+  var userid = req.params.userid;
+  var habitid = req.params.habitid;
+  var log = {};
 
+  log.userid = userid;
+  log.habitid = habitid;
+
+  knex('habitlog').insert(habit).then(function(success) {
+    console.log(success);
   }, function(failure) {
     console.log(failure);
 
