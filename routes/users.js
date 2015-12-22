@@ -107,9 +107,9 @@ router.post('/habits/create/:userid', function(req, res) {
   // INSERT INTO goodhabits VALUES(default, 1, 'Code', 'Code Every day', 24, 5000, 24, 'text');
   // Write queries to interact with postgres
   knex('goodhabits').insert(habit).then(function(success) {
-    res.write('You logged a habit, dumbass!');
-    res.end();
-
+    res.render('createHabit', {
+      habit: 'Habit created'
+    });
   }, function(failure) {
     console.log(failure);
 
