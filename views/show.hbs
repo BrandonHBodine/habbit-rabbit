@@ -60,13 +60,9 @@
       <div class="col-md-2">
         <ul class="progressDataList">
           <li class="row">
-            {{#streak}}
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{this.progressBar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progressBar}}%;">
-                  <p>{{this.streak}}</p>
-                </div>
-              </div>
-            {{/streak}}
+            {{#habits}}
+              <div class='label label-success dayTracker'>{{this.streak}} out of 30 days!</div>
+            {{/habits}}
           </li>
         </ul>
       </div>

@@ -53,6 +53,7 @@ router.get('/:id', function(req, res, next) {
   var userData = {
     name: "Alya",
     habits: data,
+    streak: data[0].streak
     // streak:
     // longestStreak: longStreak
   };

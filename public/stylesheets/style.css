@@ -107,3 +107,7 @@ a {
 .progressDataList {
   list-style:none;
 }
+
+.dayTracker {
+  margin: .5rem;
+}
