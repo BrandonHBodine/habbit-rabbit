@@ -98,16 +98,16 @@ router.post('/habits/create/:userid', function(req, res) {
   habit.userid = userid;
   habit.habitname = req.body.habitName;
   habit.description = req.body.habitDescription;
-  habit.interval = req.body.habitInterval;
-  habit.duration = req.body.habitDuration;
-  habit.reminderfreq = req.body.habitReminderFreq;
+  habit.interval = 24;
+  habit.duration = 720;
+  habit.reminderfreq = 24;
   habit.remindertype = req.body.habitReminderType;
 
 
   // INSERT INTO goodhabits VALUES(default, 1, 'Code', 'Code Every day', 24, 5000, 24, 'text');
   // Write queries to interact with postgres
   knex('goodhabits').insert(habit).then(function(success) {
-    res.write('/habits/create/' + userid);
+    res.write('You logged a habit, dumbass!');
     res.end();
 
   }, function(failure) {
