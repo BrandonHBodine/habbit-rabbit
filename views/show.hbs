@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row header">
+    <div class="col-md-12 text-center">
+      <h1>Hello Rabbit!</h1>
+    </div>
+    <div class="col-md-12 text-center" style="background-color: black">
+      <h2 style="color: white">Welcome to Habbit Rabbit. Add new habits to get started!</h2>
+    </div>
+  </div>
+
+  <div class="col-md-3 text-center">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="row" style="border: 1px solid black">
+          <h3>Habits</h3>
+          <!-- <h4>{{habits}}</h4> -->
+        </div>
+        <div class="row">
+          <ul class="habits_list">
+            {{#each habits}}
+              <li class="row" style="border: 1px solid black; list-style:none; list-style-position:outside">{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        <!-- <div class="row"> -->
+        <!-- <div class="col-md-12"> -->
+        <!-- {{#if data.habits}} -->
+        <!-- {{#each habits}} -->
+        <!-- <h4>{{habits}}</h4> -->
+        <!-- {{/each}} -->
+        <!-- {{/if}} -->
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9" style="border: 1px solid black">
+    <div class="row">
+      <h3>Getting Started</h3>
+    </div>
+    <div class="row">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+
+</div>
