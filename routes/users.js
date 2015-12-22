@@ -98,9 +98,9 @@ router.post('/habits/create/:userid', function(req, res) {
   habit.userid = userid;
   habit.habitname = req.body.habitName;
   habit.description = req.body.habitDescription;
-  habit.interval = req.body.habitInterval;
+  habit.interval = req.body.habitperiod / req.body.habitfrequency;
   habit.duration = req.body.habitDuration;
-  habit.reminderfreq = req.body.habitReminderFreq;
+  habit.reminderfreq = req.body.reminderperiod / req.body.reminderfrequency;
   habit.remindertype = req.body.habitReminderType;
 
 
