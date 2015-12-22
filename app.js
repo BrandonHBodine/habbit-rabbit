@@ -1,17 +1,30 @@
 'use strict';
-
 var express = require('express');
+var dotenv = require('dotenv');
+dotenv.load();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+//routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+// knex.select('name').from('users')
+//   .where('id', '>', 20)
+//   .andWhere('id', '<', 200)
+//   .limit(10)
+//   .offset(x)
+//   .then(function(rows) {
+//     return _.pluck(rows, 'name');
+//   })
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
