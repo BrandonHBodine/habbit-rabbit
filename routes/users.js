@@ -55,25 +55,6 @@ router.get('/:id', function(req, res, next) {
     console.log('The query Failed: ' + failure);
   });
 
-  // router.get('/:id', function(req, res, next) {
-  //   // var longestStreak = getMaxofArray(streakArray);
-  //   // var longStreak = getMaxofArray(streakArray);
-  //   // for (var i = 0; i <= data.length-1; i++) {
-  //   //   streakArray.push(data[i].streak);
-  //   //   return streakArray;
-  //   //   console.log(streakArr);
-  //   // }
-  //   var userData = {
-  //     name: "Alya",
-  //     habits: data,
-  //     // streak:
-  //     // longestStreak: longStreak
-  //   };
-  //
-  //   res.render('show', userData);
-  //   // var longestStreak = getMaxofArray(streakArray);
-  // });
-
   // HABIT LOG DATA REQUEST BASED ON USER ID
   knex.select('*').table('habitlog').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
@@ -81,8 +62,16 @@ router.get('/:id', function(req, res, next) {
   }, function(failure) {
     console.log('The query Failed: ' + failure);
   });
-});
 
+  var userData = {
+    name: "Alya",
+    habits: data,
+    // streak:
+    // longestStreak: longStreak
+  };
+
+  res.render('show', userData);
+});
 
 router.get('/', function(req, res, next) {
 
