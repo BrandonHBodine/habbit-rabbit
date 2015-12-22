@@ -109,12 +109,11 @@ router.post('/create', function(req, res) {
   user.username = req.body.newUsername;
   user.password = req.body.newPassword;
 
-  res.write('this is the new page');
-  res.end();
-
   // Write queries to interact with postgres
   knex('users').insert(user).then(function(success) {
-    res.end('You Have signed up');
+    res.render('successfulSignup', {
+      username: user.username
+    });
   }, function(failure) {
     console.log(failure);
   });
