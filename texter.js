@@ -1,10 +1,16 @@
-//Initialize a REST client in a single line:
+//Initialize a REST client for Twilio in a single line:
 var client = require('twilio')();
+var schedule = require('node-schedule');
 
+var texter = {};
 
-var text = {};
+// set RecurrenceRule for
+texter.rule = new schedule.RecurrenceRule();
+texter.rule.hour = 12;
+texter.rule.minute = 0;
 
-text.send = function (num, text) {
+texter.dailyText = schedule.scheduleJob(rule, function (num, text) {
+
 // Use this convenient shorthand to send an SMS:
 client.sendSms({
     to: num,
@@ -19,7 +25,7 @@ client.sendSms({
     } else {
         console.log('Oops! There was an error.');
     }
+  });
 });
-};
 
-module.exports = text;
+module.exports = texter;
