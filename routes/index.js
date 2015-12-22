@@ -8,4 +8,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Habbit Rabbit' });
 });
 
+/* GET home page. */
+router.get('/index.html', function(req, res, next) {
+  res.render('index', { title: 'Habbit Rabbit' });
+});
+
 module.exports = router;
