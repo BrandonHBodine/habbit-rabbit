@@ -27,5 +27,5 @@ CREATE TABLE habitlog (
     id           SERIAL,
     userid       INTEGER,
     habitid      INTEGER,
-    logdate      date
+    logdate      timestamptz
 );
