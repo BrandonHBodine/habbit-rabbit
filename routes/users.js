@@ -8,6 +8,7 @@ var knex = require('knex')({
   connection: process.env.DATABASE_URL
 });
 var streakArray = [];
+
 function getMaxofArray(numArray) {
   return Math.max.apply(null, numArray);
 }
@@ -25,52 +26,38 @@ router.get('/:id', function(req, res, next) {
     for (var i = 0; i < success.length; i++) {
       userData.habits[i] = success[i];
     }
-
-
-
-    res.render('show', userData);
   }, function(failure) {
     console.log('The query Failed: ' + failure);
   });
   // HABIT LOG DATA REQUEST BASED ON USER ID
   knex.select('*').table('habitlog').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
-    // console.log(Date.parse(success[0].logdate))
-    // for (var i = 0; i < success.length; i++) {
-    //   for (var j = 0; j < success.length; j++) {
-    //     if (success[i].habitid === success[j].habitid && success[i].id !== success[j].id) {
-    //       var dateOne = Date.parse(success[j].logdate);
-    //       // console.log(dateOne);
-    //       var dateTwo = Date.parse(success[i].logdate);
-    //       var dateDiff = (dateOne-dateTwo)/3600000
-    //       console.log(dateDiff);
-    //       var streak = Math.floor(Date.parse(dateDiff))
-    //       // console.log(streak);
-    //       userData.streak.push(streak);
-    //     }
-    //   }
-    //   // var next = i + 1;
-    //   // console.log(next);
-    //   // var nextDate = Date.parse(success[next].logdate);
-    //   // var firstDate = Date.parse(success[i].logdate);
-    //   // userData.streak.push(nextDate - firstDate)
-    // }
-    // success.reduce()
     for (var k = 0; k < userData.habits.length; k++) {
       userData.habits[k].currentStreak = 0;
     }
-    console.log(userData);
     for (var j = 0; j < userData.habits.length; j++) {
-    for (var i = 0; i < success.length; i++) {
-      var milliseconds = Date.parse(success[i].logdate);
-      var dateDiff = Date.now() - milliseconds;
-      if (success[i].habitid == userData.habits[j].id && dateDiff/86400000 > userData.habits[j].currentStreak) {
-        // console.log(dateDiff);
-      userData.habits[j].currentStreak = (Math.round(dateDiff/86400000));
-          };
-        }
-          console.log(userData);
+      for (var i = 0; i < success.length; i++) {
+        var milliseconds = Date.parse(success[i].logdate);
+        var dateDiff = Date.now() - milliseconds;
+        if (success[i].habitid == userData.habits[j].id && dateDiff / 86400000 > userData.habits[j].currentStreak) {
+          userData.habits[j].currentStreak = (Math.round(dateDiff / 86400000));
+          userData.habits[j].percentOfThirtyDays = (100 * (userData.habits[j].currentStreak) / 30);
+        };
       }
+    }
+    userData.longest = [{
+      longestCurrentStreak: 0
+    }, {
+      longestCurrentStreakName: ''
+    }];
+    for (var l = 0; l < userData.habits.length; l++) {
+      if (userData.habits[l].currentStreak > userData.longest[0].longestCurrentStreak) {
+        userData.longest[0].longestCurrentStreak = userData.habits[l].currentStreak;
+        userData.longest[1].longestCurrentStreakName = userData.habits[l].habitname;
+
+      }
+    }
+    res.render('show', userData);
   }, function(failure) {
     console.log('The query Failed: ' + failure);
   });
@@ -177,8 +164,7 @@ router.post('/:id/habits/create', function(req, res, next) {
   });
 });
 // get habits based on user and habbit id
-router.get('/habits/get/:userid/:habitid', function(req, res) {
-}, function(failure) {
+router.get('/habits/get/:userid/:habitid', function(req, res) {}, function(failure) {
   console.log('You Failed: ' + failure);
 });
 module.exports = router;

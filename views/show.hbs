@@ -5,12 +5,13 @@
       <h1 class="title">Habbit<br> Rabbit</h1>
     </div>
     <div class="col-md-12 text-center subtitle">
-      <h2 class="subtitleText">Nice Work! You're on a
-        {{#habits}}<p>
-          {{this.currentStreak}}
-        </p>
-        {{/habits}} day
-        {{#habits}}{{this.habitname}}{{/habits}} streak!</h2>
+      <p class="subtitleText">Nice Work! You're on a
+        {{#longest}}
+          {{this.longestCurrentStreak}}
+        {{/longest}} day
+        {{#longest}}
+        {{this.longestCurrentStreakName}}
+        {{/longest}} streak!</p>
     </div>
   </div>
 
@@ -52,7 +53,7 @@
           <li class="row">
             {{#habits}}
               <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{this.progressBar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progressBar}}%;">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{this.percentOfThirtyDays}}" aria-valuemin="0" aria-valuemax="100" style="width: {{this.percentOfThirtyDays}}%;">
                   <p>{{this.habitname}}</p>
                 </div>
               </div>
