@@ -149,6 +149,7 @@ router.post('/habits/log/:userid/:habitid', function(req, res) {
   log.habitid = habitid;
   knex('habitlog').insert(log).then(function(success) {
     console.log(success);
+    res.redirect('/users/'+userid);
   }, function(failure) {
     console.log(failure);
   });
