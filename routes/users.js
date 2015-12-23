@@ -17,15 +17,18 @@ function getMaxofArray(numArray) {
 /* GET users listing. */
 router.get('/:id', function(req, res, next) {
   var userData = {};
+
   userData.habits = [];
   userData.streak = [];
   var id = req.params.id;
+  userData.userid = id;
   // HABITS DATA REQUEST BASED ON USER ID
   knex.select('*').table('goodhabits').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
     for (var i = 0; i < success.length; i++) {
       userData.habits[i] = success[i];
     }
+    console.log(success);
   }, function(failure) {
     console.log('The query Failed: ' + failure);
   });
@@ -45,6 +48,7 @@ router.get('/:id', function(req, res, next) {
         };
       }
     }
+    console.log(success);
     userData.longest = [{
       longestCurrentStreak: 0
     }, {
@@ -126,7 +130,8 @@ router.post('/habits/create/:userid', function(req, res) {
   // Write queries to interact with postgres
   knex('goodhabits').insert(habit).then(function(success) {
     res.render('createHabit', {
-      habit: 'Habit created'
+      habit: 'Habit created',
+      userid: req.params.userid
     });
   }, function(failure) {
     console.log(failure);
@@ -134,6 +139,7 @@ router.post('/habits/create/:userid', function(req, res) {
 }, function(failure) {
   console.log('You failed to retrive route: ' + failure);
 });
+
 // Log a habit
 router.post('/habits/log/:userid/:habitid', function(req, res) {
   var userid = req.params.userid;
@@ -141,33 +147,36 @@ router.post('/habits/log/:userid/:habitid', function(req, res) {
   var log = {};
   log.userid = userid;
   log.habitid = habitid;
-  knex('habitlog').insert(habit).then(function(success) {
+  knex('habitlog').insert(log).then(function(success) {
     console.log(success);
   }, function(failure) {
     console.log(failure);
   });
 });
+
 // Get habits based on user ID
 router.get('/habits/get/:userid/:habitid', function(req, res) {
   var userid = req.params.userid;
   var habitid = req.params.habitid;
-  res.write('/habits/create/' + userid + habitid);
-  res.end();
+
 }, function(failure) {
   console.log('You Failed: ' + failure);
 });
+
 router.get('/:id/habits/create', function(req, res, next) {
   res.render('createHabit', {
     title: 'Habbit Rabbit',
     userid: req.params.id
   });
 });
+
 router.post('/:id/habits/create', function(req, res, next) {
-  console.log(req.body);
   res.render('createHabit', {
-    title: 'Habbit Rabbit'
+    title: 'Habbit Rabbit',
+    userid: req.params.id
   });
 });
+
 // get habits based on user and habbit id
 router.get('/habits/get/:userid/:habitid', function(req, res) {}, function(failure) {
   console.log('You Failed: ' + failure);
