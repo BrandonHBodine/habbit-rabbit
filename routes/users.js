@@ -130,7 +130,8 @@ router.post('/habits/create/:userid', function(req, res) {
   // Write queries to interact with postgres
   knex('goodhabits').insert(habit).then(function(success) {
     res.render('createHabit', {
-      habit: 'Habit created'
+      habit: 'Habit created',
+      userid: req.params.userid
     });
   }, function(failure) {
     console.log(failure);
