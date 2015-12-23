@@ -15,7 +15,7 @@ var users = require('./routes/users');
 
 var textScheduler = require('./texter');
 // call texter for scheduled time
-textScheduler.scheduleText('+15088435229', 'Hey Alya! Have you worked on Habbit Rabbit today?');
+// textScheduler.scheduleText();
 
 var app = express();
 app.use(bodyParser.json());
