@@ -164,12 +164,14 @@ router.get('/:id/habits/create', function(req, res, next) {
     userid: req.params.id
   });
 });
+
 router.post('/:id/habits/create', function(req, res, next) {
-  console.log(req.body);
   res.render('createHabit', {
-    title: 'Habbit Rabbit'
+    title: 'Habbit Rabbit',
+    userid: req.params.id
   });
 });
+
 // get habits based on user and habbit id
 router.get('/habits/get/:userid/:habitid', function(req, res) {}, function(failure) {
   console.log('You Failed: ' + failure);
