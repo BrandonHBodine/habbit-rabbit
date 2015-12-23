@@ -25,7 +25,7 @@ router.get('/:id', function(req, res, next) {
     for (var i = 0; i < success.length; i++) {
       userData.habits[i] = success[i];
     }
-    console.log(userData);
+
 
 
     res.render('show', userData);
@@ -56,21 +56,25 @@ router.get('/:id', function(req, res, next) {
     //   // userData.streak.push(nextDate - firstDate)
     // }
     // success.reduce()
+    for (var k = 0; k < userData.habits.length; k++) {
+      userData.habits[k].currentStreak = 0;
+    }
+    console.log(userData);
     for (var j = 0; j < userData.habits.length; j++) {
     for (var i = 0; i < success.length; i++) {
-      if (success[i].habitid == userData.habits[j].id) {
-        console.log(success[i].logdate)
       var milliseconds = Date.parse(success[i].logdate);
       var dateDiff = Date.now() - milliseconds;
-      if (dateDiff/86400000 > userData.streak) {
-      userData.streak = (dateDiff/86400000);
+      if (success[i].habitid == userData.habits[j].id && dateDiff/86400000 > userData.habits[j].currentStreak) {
+        // console.log(dateDiff);
+      userData.habits[j].currentStreak = (Math.round(dateDiff/86400000));
           };
         }
+          console.log(userData);
       }
-    }
   }, function(failure) {
     console.log('The query Failed: ' + failure);
   });
+
 
 });
 router.get('/', function(req, res, next) {
