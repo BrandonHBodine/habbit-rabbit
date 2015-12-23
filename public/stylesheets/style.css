@@ -107,3 +107,13 @@ a {
 .progressDataList {
   list-style:none;
 }
+
+.radio {
+  margin-left: 2.75em;
+  display: inline;
+}
+
+.submit {
+  padding-left: 3em;
+  padding-top: 2em;
+}
