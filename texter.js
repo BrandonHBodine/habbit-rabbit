@@ -51,37 +51,49 @@ texter.sendText = function(num, text){
     });
   };
 
-  // get users who haven't logged today
-  knex.select('*').table('users').then(function(success) {
-    var counter = 0;
-    var users = {};
+  knex.select('*').from('users').leftJoin('goodhabits', 'users.id', 'goodhabits.userid').then(function(success){
     for (var i = 0; i < success.length; i++) {
-      users[success[i].id] = {};
-      users[success[i].id].phone = success[i].phone;
-      users[success[i].id].fname = success[i].firstname;
-
-      knex.select('*').table('goodhabits').where('userid', success[i].id).then(function (greatSuccess) {
-        console.log(greatSuccess);
-        if (greatSuccess.length >= 1){
-          // loop through 
-          for (var j = 0; j < greatSuccess.length; j++){
-            users[greatSuccess[j].userid].habit[j] = greatSuccess[j].habitname;
-          //   console.log(greatSuccess);
-          //   console.log(phone + ' ' + name + ' this is a message about ' + greatSuccess[j].habitname);
-          }
-
-          // texter.sendText()
-        } else {
-          console.log('no habits');
-        }
-        counter++;
-        if (counter === success.length){
-          // texter.sendText(phone, 'Hi ' + success[i].firstname + ', have you logged about ' + greatSuccess[j].habitname + ' today?');
-          console.log(users);
-        }
-      });
+      console.log(success[i]);
+      if (success[i].id !== null){
+        texter.sendText(success[i].phone, 'Hi ' + success[i].firstname + ', have you logged about ' + success[i].habitname + ' today?');
+      }
     }
+
+
   });
+
+
+  // get users who haven't logged today
+  // knex.select('*').table('users').then(function(success) {
+  //   var counter = 0;
+  //   var users = {};
+  //   for (var i = 0; i < success.length; i++) {
+  //     users[success[i].id] = {};
+  //     users[success[i].id].phone = success[i].phone;
+  //     users[success[i].id].fname = success[i].firstname;
+  //
+  //     knex.select('*').table('goodhabits').where('userid', success[i].id).then(function (greatSuccess) {
+  //       console.log(greatSuccess);
+  //       if (greatSuccess.length >= 1){
+  //         // loop through
+  //         for (var j = 0; j < greatSuccess.length; j++){
+  //           users[greatSuccess[j].userid].habit[j] = greatSuccess[j].habitname;
+  //         //   console.log(greatSuccess);
+  //         //   console.log(phone + ' ' + name + ' this is a message about ' + greatSuccess[j].habitname);
+  //         }
+  //
+  //         // texter.sendText()
+  //       } else {
+  //         console.log('no habits');
+  //       }
+  //       counter++;
+  //       if (counter === success.length){
+  //         // texter.sendText(phone, 'Hi ' + success[i].firstname + ', have you logged about ' + greatSuccess[j].habitname + ' today?');
+  //         console.log(users);
+  //       }
+  //     });
+  //   }
+  // });
 
 
 module.exports = texter;
