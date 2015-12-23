@@ -84,18 +84,23 @@ router.get('/get/:id', function(req, res) {
 router.post('/create', function(req, res) {
   var user = {};
   // set variables to the post request
-  // user.id = ;
   user.firstname = req.body.firstName;
   user.lastname = req.body.lastName;
   user.email = req.body.userEmail;
   user.phone = req.body.phoneNum;
   user.username = req.body.newUsername;
   user.password = req.body.newPassword;
-  res.write('this is the new page');
-  res.end();
   // Write queries to interact with postgres
   knex('users').insert(user).then(function(success) {
-    res.end('You Have signed up');
+
+    var userData = {
+      name: "Alya",
+      habits: data,
+      username: user.username
+    };
+
+    res.render('successfulSignup', userData);
+
   }, function(failure) {
     console.log(failure);
   });

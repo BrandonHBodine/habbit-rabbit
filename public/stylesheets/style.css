@@ -1,6 +1,19 @@
 body {
   font: 14px "Helvetica", Helvetica, Arial, sans-serif;
+  color: #0169C9;
   font-weight: bold;
+}
+ #indexBlock {
+   background-color: #79e079;
+ }
+
+.signInBlock {
+  background-color: #B3DEFD;
+  border-radius: 56px 56px 56px 56px;
+  height: 120rem;
+  width: 70rem;
+  margin-top: 3rem;
+  box-shadow: 10px 10px 59px 0px rgba(0,0,0,0.75);
 }
 
 a {
@@ -19,6 +32,12 @@ a {
 
 .logo {
   vertical-align: 0;
+}
+
+.bigLogo {
+  margin-top: 1.25rem;
+  height: 20em;
+  width: auto;
 }
 
 .signInUp {
@@ -55,19 +74,24 @@ a {
 }
 
 .subtitle {
-  background-color: black;
+  background-color: #33B5E5;
+  box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.75);
 }
 
 .subtitleText {
   color: white;
+  font: 3rem "Helvetica", Helvetica, Arial, sans-serif;
+  margin-top: 1rem;
+
 }
 
 .sidebar {
   padding-left:0;
+
 }
 
 .sidebarTitle {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 .habitsListTitle {
@@ -75,7 +99,6 @@ a {
 }
 
 .habitsList {
-  border: 1px solid black;
   list-style:none;
 }
 
@@ -110,4 +133,17 @@ a {
 
 .dayTracker {
   margin: .5rem;
+}
+.radio {
+  margin-left: 2.75em;
+  display: inline;
+}
+
+.submit {
+  padding-left: 3em;
+  padding-top: 2em;
+}
+
+.spacer {
+  height: 5em;
 }
