@@ -25,7 +25,8 @@ router.get('/:id', function(req, res, next) {
     for (var i = 0; i < success.length; i++) {
       userData.habits[i] = success[i];
     }
-    console.log(success);
+    console.log(userData);
+
 
     res.render('show', userData);
   }, function(failure) {
@@ -34,10 +35,7 @@ router.get('/:id', function(req, res, next) {
   // HABIT LOG DATA REQUEST BASED ON USER ID
   knex.select('*').table('habitlog').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
-    console.log(success);
-
     // console.log(Date.parse(success[0].logdate))
-    userData.streak = [];
     // for (var i = 0; i < success.length; i++) {
     //   for (var j = 0; j < success.length; j++) {
     //     if (success[i].habitid === success[j].habitid && success[i].id !== success[j].id) {
@@ -58,8 +56,17 @@ router.get('/:id', function(req, res, next) {
     //   // userData.streak.push(nextDate - firstDate)
     // }
     // success.reduce()
+    for (var j = 0; j < userData.habits.length; j++) {
     for (var i = 0; i < success.length; i++) {
-      Date.parse(success[i].logdate)
+      if (success[i].habitid == userData.habits[j].id) {
+        console.log(success[i].logdate)
+      var milliseconds = Date.parse(success[i].logdate);
+      var dateDiff = Date.now() - milliseconds;
+      if (dateDiff/86400000 > userData.streak) {
+      userData.streak = (dateDiff/86400000);
+          };
+        }
+      }
     }
   }, function(failure) {
     console.log('The query Failed: ' + failure);
@@ -75,7 +82,7 @@ router.get('/', function(req, res, next) {
 router.get('/get/:id', function(req, res) {
   var id = req.params.id;
   knex.select('*').table('users').where('id', id).then(function(success) {
-    console.log(success[0].firstname);
+    // console.log(success[0].firstname);
     res.write(success[0].firstname);
     res.end();
   }, function(failure) {

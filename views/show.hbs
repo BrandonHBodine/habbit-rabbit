@@ -6,7 +6,10 @@
     </div>
     <div class="col-md-12 text-center subtitle">
       <h2 class="subtitleText">Nice Work! You're on a
-        {{#streak}}{{this}}{{/streak}} day
+        {{#streak}}<p>
+          {{streak}}
+        </p>
+        {{/streak}} day
         {{#streakHabit}}{{this.streakHabit}}{{/streakHabit}} streak!</h2>
     </div>
   </div>
@@ -50,7 +53,7 @@
             {{#habits}}
               <div class="progress">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{this.progressBar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{this.progressBar}}%;">
-                  <p>{{this.habits}}</p>
+                  <p>{{this.habitname}}</p>
                 </div>
               </div>
             {{/habits}}
@@ -60,9 +63,9 @@
       <div class="col-md-2">
         <ul class="progressDataList">
           <li class="row">
-            {{#habits}}
-              <div class='label label-success dayTracker'>{{this.streak}} out of 30 days!</div>
-            {{/habits}}
+            {{#streak}}
+              <div class='label label-success dayTracker'>{{this}} out of 30 days!</div>
+            {{/streak}}
           </li>
         </ul>
       </div>
