@@ -100,7 +100,6 @@ router.get('/get/:id', function(req, res) {
 router.post('/create', function(req, res) {
   var user = {};
   // set variables to the post request
-  // user.id = ;
   user.firstname = req.body.firstName;
   user.lastname = req.body.lastName;
   user.email = req.body.userEmail;
@@ -111,9 +110,15 @@ router.post('/create', function(req, res) {
 
   // Write queries to interact with postgres
   knex('users').insert(user).then(function(success) {
-    res.render('successfulSignup', {
+    
+    var userData = {
+      name: "Alya",
+      habits: data,
       username: user.username
-    });
+    };
+
+    res.render('successfulSignup', userData);
+
   }, function(failure) {
     console.log(failure);
   });
