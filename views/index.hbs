@@ -1,57 +1,60 @@
-<body>
-  <div class="container-fluid">
-    <div class="row header">
-      <div class="col-md-12 text-center header">
-        <h1 class="title">Habbit Rabbit</h1>
+<body id="indexBlock">
+  <div class="container-fluid signInBlock ">
+    <div class="center-block">
+      <div class="row header">
+        <img src="http://www.clipartlord.com/wp-content/uploads/2014/04/bunny-face.png" class="bigLogo center-block" height="100rem" width="100rem" />
+        <div class="col-md-12 text-center header">
+          <h1 class="title">Habbit Rabbit</h1>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="intro">You're 30 days away from  a new good habit!
-          <br>Sign up or sign in to track your habits.
-        </p>
-      </div>
-    </div>
-    <div class="row successMessage">
-      <div class="col-md-12">
-        <div class="text-center">
-          <h3>Success</h3>
-          <p>
-            You've successfully joined Habbit Rabbit! Sign in below to start habbiting!
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="intro">You're 30 days away from a new good habit!
+            <br>Sign up or sign in to track your habits.
           </p>
         </div>
       </div>
-    </div>
-    <div class="row signin">
-      <div class="col-md-3 buffer">
-      </div>
-      <div class="col-md-6">
-        <form class="signin" action="routes/index.js" method="post">
-          <div class="form-group has-feedback">
-            <label class="control-label" for="username">Username</label>
-            <input type="text" class="form-control" id="username">
+      <div class="row successMessage">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h3>Success</h3>
+            <p>
+              You've successfully joined Habbit Rabbit! Sign in below to start habbiting!
+            </p>
           </div>
-          <div class="form-group has-feedback">
-            <label class="control-label" for="password">Password</label>
-            <input type="text" class="form-control" id="password">
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="button text-center" id="signinBtn">
-          <input type="button" name="signin" value="Sign In">
-        </div>
-        <div class="button text-center" id="cancelSignin">
-          <input type="button" name="cancelSignin" value="Cancel">
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="button text-center" id="signupBtn">
-          <input type="button" name="signup" value="Sign Up">
+      <div class="row signin">
+        <div class="col-md-3 buffer">
+        </div>
+        <div class="col-md-6">
+          <form class="signin" action="routes/index.js" method="post">
+            <div class="form-group has-feedback">
+              <label class="control-label" for="username">Username</label>
+              <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group has-feedback">
+              <label class="control-label" for="password">Password</label>
+              <input type="text" class="form-control" id="password">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="button text-center" id="signinBtn">
+            <input type="button" name="signin" value="Sign In">
+          </div>
+          <div class="button text-center" id="cancelSignin">
+            <input type="button" name="cancelSignin" value="Cancel">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="button text-center" id="signupBtn">
+            <input type="button" name="signup" value="Sign Up">
+          </div>
         </div>
       </div>
     </div>
