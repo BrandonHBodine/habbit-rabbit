@@ -27,7 +27,9 @@
               {{#habits}}
                 <li class="row habitsList">
                   <div class="habitsListItems pull-left">{{this.habitname}}</div>
-                  <div class="btn btn-info pull-right">+ Did Today</div>
+                  <form method="POST" action="/users/habits/log/{{userid}}/{{this.id}}" >
+                      <input class="btn btn-info pull-right" type="submit" value="+ Did Today">
+                  </form>
                 </li>
               {{/habits}}
             </ul>
