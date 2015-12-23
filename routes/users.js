@@ -158,7 +158,8 @@ router.get('/habits/get/:userid/:habitid', function(req, res) {
 });
 router.get('/:id/habits/create', function(req, res, next) {
   res.render('createHabit', {
-    title: 'Habbit Rabbit'
+    title: 'Habbit Rabbit',
+    userid: req.params.id
   });
 });
 router.post('/:id/habits/create', function(req, res, next) {
