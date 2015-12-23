@@ -17,9 +17,11 @@ function getMaxofArray(numArray) {
 /* GET users listing. */
 router.get('/:id', function(req, res, next) {
   var userData = {};
+
   userData.habits = [];
   userData.streak = [];
   var id = req.params.id;
+  userData.userid = id;
   // HABITS DATA REQUEST BASED ON USER ID
   knex.select('*').table('goodhabits').where('userid', id).then(function(success) {
     // NEED TO ADD VIEWS BASED ON DATA RETURNED
