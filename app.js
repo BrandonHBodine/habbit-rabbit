@@ -15,7 +15,7 @@ var users = require('./routes/users');
 
 var textScheduler = require('./texter');
 // call texter for scheduled time
-// textScheduler.scheduleText();
+textScheduler.scheduleTexts();
 
 var app = express();
 app.use(bodyParser.json());
