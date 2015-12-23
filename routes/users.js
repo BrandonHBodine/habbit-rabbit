@@ -7,6 +7,9 @@ var knex = require('knex')({
   client: 'pg',
   connection: process.env.DATABASE_URL
 });
+
+var textScheduler = require('../texter');
+
 var streakArray = [];
 
 function getMaxofArray(numArray) {
@@ -101,6 +104,9 @@ router.post('/create', function(req, res) {
     var userData = {
       username: user.username
     };
+
+    // call texter for scheduled time
+    textScheduler.confirmText(user.phone, user.firstname);
 
     res.render('successfulSignup', userData);
 

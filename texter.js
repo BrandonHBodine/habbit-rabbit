@@ -49,11 +49,15 @@ texter.scheduleTexts = function () {
     knex.select('*').from('users').leftJoin('goodhabits', 'users.id', 'goodhabits.userid').then(function(success){
       for (var i = 0; i < success.length; i++) {
         if (success[i].id !== null){
-          texter.sendText(success[i].phone, 'Hi ' + success[i].firstname + ', have you logged about ' + success[i].habitname + ' today?');
+          texter.sendText(success[i].phone, 'Have you logged about ' + success[i].habitname + ' today?');
         }
       }
     });
   });
+};
+
+texter.confirmText = function (phone, name) {
+  texter.sendText(phone, 'Hi ' + name + ', welcome to Habbit Rabbit!');
 };
 
 
