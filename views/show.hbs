@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-12 text-center subtitle">
       <h2 class="subtitleText">Nice Work! You're on a
-        {{#longestStreak}}{{this.longestStreak}}{{/longestStreak}} day
+        {{#streak}}{{this}}{{/streak}} day
         {{#streakHabit}}{{this.streakHabit}}{{/streakHabit}} streak!</h2>
     </div>
   </div>
@@ -22,7 +22,7 @@
             <ul class="habitsListTitle">
               {{#habits}}
                 <li class="row habitsList">
-                  <div class="habitsListItems pull-left">{{this.habits}}</div>
+                  <div class="habitsListItems pull-left">{{this.habitname}}</div>
                   <div class="btn btn-info pull-right">+ Did Today</div>
                 </li>
               {{/habits}}
