@@ -6,6 +6,8 @@ function main(){
       $('.signin').css({display: 'block'});
       $('#signupBtn').css({display: 'none'});
       $('#cancelSignin').css({display: 'block'});
+      $('#postSigninBtn').css({display: 'block'});
+      $('#signinBtn').css({display: 'none'});
     });
 
     $('#signupBtn').click(function(event){
@@ -35,6 +37,7 @@ function main(){
       $('.signin').css({display: 'none'});
       $('.signup').css({display: 'none'});
       $('#cancelSignin').css({display: 'none'});
+      $('#postSigninBtn').css({display: 'none'});
     });
 
     $('.btn-default').click(function(event){

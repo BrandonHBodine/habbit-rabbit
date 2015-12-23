@@ -65,6 +65,10 @@ a {
   display: none;
 }
 
+#postSigninBtn {
+  display: none;
+}
+
 .successMessage {
   display: none;
 }
