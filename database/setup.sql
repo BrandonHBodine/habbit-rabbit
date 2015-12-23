@@ -16,7 +16,7 @@ CREATE TABLE goodhabits (
     userid       INTEGER,
     habitname    VARCHAR(50),
     description  VARCHAR(50),
-    inteval      INTEGER,
+    interval      INTEGER,
     duration     INTEGER,
     reminderFreq INTEGER,
     reminderType VARCHAR(50)

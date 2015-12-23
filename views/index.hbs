@@ -1,104 +1,108 @@
-<div class="container-fluid">
-  <div class="row header">
-    <div class="col-md-12 text-center">
-      <h1>Habbit Rabbit</h1>
-      <p>Welcome to Habbit Rabbit</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <p>
-        Ugh mustache truffaut quinoa shabby chic, tacos twee semiotics health goth pabst 8-bit. Fixie leggings messenger bag gastropub listicle. XOXO post-ironic leggings YOLO ethical helvetica, offal beard synth authentic gentrify wolf kinfolk neutra farm-to-table.
-      </p>
-    </div>
-  </div>
-  <div class="row successMessage">
-    <div class="col-md-12">
-      <div class="text-center">
-        <h3>Success</h3>
-        <p>
-          You've successfully joined Habbit Rabbit! Sign in below to start habbiting!
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="row signin">
-    <div class="col-md-3 buffer">
-    </div>
-    <div class="col-md-6">
-      <form class="signin" action="routes/index.js" method="post">
-        <div class="form-group has-feedback">
-          <label class="control-label" for="username">Username</label>
-          <input type="text" class="form-control" id="username">
+<body id="indexBlock">
+  <div class="container-fluid signInBlock ">
+    <div class="center-block">
+      <div class="row header">
+        <img src="http://www.clipartlord.com/wp-content/uploads/2014/04/bunny-face.png" class="bigLogo center-block" height="100rem" width="100rem" />
+        <div class="col-md-12 text-center header">
+          <h1 class="title">Habbit Rabbit</h1>
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="password">Password</label>
-          <input type="text" class="form-control" id="password">
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="button text-center" id="signinBtn">
-        <input type="button" name="signin" value="Sign In">
       </div>
-      <div class="button text-center" id="cancelSignin">
-        <input type="button" name="cancelSignin" value="Cancel">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="button text-center" id="signupBtn">
-        <input type="button" name="signup" value="Sign Up">
-      </div>
-    </div>
-  </div>
-  <div class="row signup">
-    <div class="col-md-3 buffer">
-    </div>
-    <div class="col-md-6">
-      <!-- action should be: "routes/index.js", method should be: "post", and submit button type should be: 'submit'-->
-      <form class="signup" action="/users/create" method="POST">
-        <div class="form-group has-feedback">
-          <label class="control-label" for="firstName">First Name</label>
-          <input type="text" class="form-control" name="firstName">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="intro">You're 30 days away from a new good habit!
+            <br>Sign up or sign in to track your habits.
+          </p>
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="lastName">Last Name</label>
-          <input type="text" class="form-control" name="lastName">
-        </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="userEmail">Email Address</label>
-          <div class="input-group">
-            <span class="input-group-addon">@</span>
-            <input type="text" class="form-control" name="userEmail">
+      </div>
+      <div class="row successMessage">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h3>Success</h3>
+            <p>
+              You've successfully joined Habbit Rabbit! Sign in below to start habbiting!
+            </p>
           </div>
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="phoneNum">Phone Number</label>
-          <input type="text" class="form-control" name="phoneNum">
+      </div>
+      <div class="row signin">
+        <div class="col-md-3 buffer">
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="newUsername">Username</label>
-          <input type="text" class="form-control" name="newUsername">
+        <div class="col-md-6">
+          <form class="signin" action="routes/index.js" method="post">
+            <div class="form-group has-feedback">
+              <label class="control-label" for="username">Username</label>
+              <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group has-feedback">
+              <label class="control-label" for="password">Password</label>
+              <input type="text" class="form-control" id="password">
+            </div>
+          </form>
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="newPassword">Password</label>
-          <input type="text" class="form-control" name="newPassword">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="button text-center" id="signinBtn">
+            <input type="button" name="signin" value="Sign In">
+          </div>
+          <div class="button text-center" id="cancelSignin">
+            <input type="button" name="cancelSignin" value="Cancel">
+          </div>
         </div>
-        <div class="form-group has-feedback">
-          <label class="control-label" for="confNewPassword">Confirm Password</label>
-          <input type="text" class="form-control" name="confNewPassword">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="button text-center" id="signupBtn">
+            <input type="button" name="signup" value="Sign Up">
+          </div>
         </div>
-        <div class="button text-center" id="submit">
-          <input type="submit">
-        </div>
-        <div class="button text-center" id="cancelSignup">
-          <input type="button" name="cancelSignup" value="Cancel">
-        </div>
-      </form>
+      </div>
+    </div>
+    <div class="row signup">
+      <div class="col-md-3 buffer">
+      </div>
+      <div class="col-md-6">
+        <!-- action should be: "routes/index.js", method should be: "post", and submit button type should be: 'submit'-->
+        <form class="signup" action="/users/create" method="POST">
+          <div class="form-group has-feedback">
+            <label class="control-label" for="firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="userEmail">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" name="userEmail">
+            </div>
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="phoneNum">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNum">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="newUsername">Username</label>
+            <input type="text" class="form-control" name="newUsername">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="newPassword">Password</label>
+            <input type="text" class="form-control" name="newPassword">
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label" for="confNewPassword">Confirm Password</label>
+            <input type="text" class="form-control" name="confNewPassword">
+          </div>
+          <div class="button text-center" id="submit">
+            <input type="submit">
+          </div>
+          <div class="button text-center" id="cancelSignup">
+            <input type="button" name="cancelSignup" value="Cancel">
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</body>

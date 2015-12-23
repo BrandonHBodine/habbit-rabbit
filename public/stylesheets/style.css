@@ -1,5 +1,19 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica", Helvetica, Arial, sans-serif;
+  color: #0169C9;
+  font-weight: bold;
+}
+ #indexBlock {
+   background-color: #79e079;
+ }
+
+.signInBlock {
+  background-color: #B3DEFD;
+  border-radius: 56px 56px 56px 56px;
+  height: 120rem;
+  width: 70rem;
+  margin-top: 3rem;
+  box-shadow: 10px 10px 59px 0px rgba(0,0,0,0.75);
 }
 
 a {
@@ -7,7 +21,27 @@ a {
 }
 
 .header {
-  background-color: rgb(223, 223, 223);
+
+}
+
+.title {
+  font: 40px "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  display:inline-block;
+}
+
+.logo {
+  vertical-align: 0;
+}
+
+.bigLogo {
+  margin-top: 1.25rem;
+  height: 20em;
+  width: auto;
+}
+
+.signInUp {
+
 }
 
 .list-group {
@@ -37,4 +71,72 @@ a {
 
 .button {
   margin-top: 2em;
+}
+
+.subtitle {
+  background-color: #33B5E5;
+  box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.75);
+}
+
+.subtitleText {
+  color: white;
+  font: 3rem "Helvetica", Helvetica, Arial, sans-serif;
+  margin-top: 1rem;
+
+}
+
+.sidebar {
+  padding-left:0;
+
+}
+
+.sidebarTitle {
+  /*border: 1px solid black;*/
+}
+
+.habitsListTitle {
+  padding-left:0;
+}
+
+.habitsList {
+  list-style:none;
+}
+
+.habitsListItems {
+  padding-top:1rem;
+  padding-left:1em;
+}
+.showcase {
+  padding-right:0;
+}
+
+.showcaseInfo {
+
+}
+
+.intro {
+  font-size: 2rem;
+}
+
+.progressBarsList {
+  list-style: none;
+}
+
+.progress {
+  height: 3rem;
+  margin: .5rem;
+}
+
+.progressDataList {
+  list-style:none;
+}
+
+.radio {
+  margin-left: 2.75em;
+  display: inline;
+}
+
+.submit {
+  padding-left: 3em;
+  padding-top: 2em;
 }
