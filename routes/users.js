@@ -90,12 +90,11 @@ router.post('/create', function(req, res) {
   user.phone = req.body.phoneNum;
   user.username = req.body.newUsername;
   user.password = req.body.newPassword;
+
   // Write queries to interact with postgres
   knex('users').insert(user).then(function(success) {
 
     var userData = {
-      name: "Alya",
-      habits: data,
       username: user.username
     };
 
